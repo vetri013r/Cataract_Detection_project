@@ -1,0 +1,77 @@
+{% extends "index.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MedicoCare!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-VbhxugNluU1jGw1iSm34JkZl+7TmB5wA7sONj0Fw/QhN5lJzNJ2Z0RfF2v7Db8ffDWOTxW4kjevOqJ79dRV0xg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .custom-file-upload::before {
+            content: '\f0ee'; /* Unicode for the cloud upload icon */
+            font-family: "Font Awesome 5 Free"; /* Ensure it uses Font Awesome */
+            font-weight: 900; /* Font weight for the icon */
+            margin-right: 10px; /* Space between icon and text */
+        }
+
+        .custom-file-upload {
+            border: 2px solid black;
+            display: inline-block;
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: white;
+            color: black;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .custom-file-upload:hover {
+            background-color: #f0f0f0;
+        }
+
+        form {
+            border: 2px solid black; /* Black border for the form */
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            background-color: white; /* Ensure form background is white */
+        }
+
+        button[type="submit"] {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+            margin-top: 20px;
+            cursor: pointer;
+            border-radius: 12px;
+            transition: background-color 0.3s;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body style="background-color: white;">
+    <h4 style="font-size: 50px;">Welcome to MedicoCare!</h4><br><br>
+    <h2 style="font-size: 23px;">Our Cataract Detection App is a revolutionary tool designed to assist healthcare professionals in the early diagnosis of cataracts, a leading cause of vision impairment worldwide. Powered by advanced AI algorithms, the app analyzes images of the eye to detect signs of cataracts with high accuracy and speed.</h2>
+    <div>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="file-upload" class="custom-file-upload">
+                <i class="fas fa-cloud-upload-alt"></i> Upload Image
+                <input id="file-upload" type="file" name="image" accept="image/*">
+            </label>
+            <br>
+            <button type="submit">
+                Get Report
+            </button>
+        </form>
+    </div>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,98 @@
+{% extends "index.html" %}
+
+{% block content %}
+<style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        {% comment %} align-items: center; {% endcomment %}
+        {% comment %} justify-content: center; {% endcomment %}
+        height: 100vh;
+        margin: 0;
+        background-color: white;
+      }
+      .top-box {
+        margin-bottom: 20px;
+        padding: 20px;
+        background-color: #f0f0f0;
+        border: 4px solid black;
+        border-radius: 15px;
+        {% comment %} text-align: center; {% endcomment %}
+        width: 100%;
+        max-width: 2400px;
+        height: 170px; /* Increased height */
+      }
+      .bottom-container {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        max-width: 1000px;
+      }
+      .box {
+        flex: 1;
+        margin: 10px;
+        padding: 20px;
+        background-color: #f0f0f0;
+        border: 4px solid black;
+        border-radius: 15px;
+        {% comment %} text-align: center; {% endcomment %}
+        width:400px;
+        height: 430px; /* Increased height */
+      }
+      {% comment %} .box:nth-child(1) {
+        background-color: #ccffcc;
+      }
+      .box:nth-child(2) {
+        background-color: #ccccff;
+      } {% endcomment %}
+      li {
+        font-size: 20px;
+        text-align: left; 
+    }
+    #id{
+      font-size: 20px;
+      padding-top: 50px;
+    }
+    </style>
+  </head>
+  <body>
+    
+    {% if pred %}
+    <div class="top-box" id="id"><h4>Your test results indicate that you do not have cataracts. Please continue to maintain regular eye check-ups and follow any recommendations from your healthcare provider to ensure your eye health</h4></div>
+    <div class="bottom-container">
+      <div class="box"><h2>Things to Do</h2><br><br>
+      <li>Consume a diet rich in antioxidants, including fruits and vegetables like spinach, kale, and carrots.</li><br>
+      <li>Conditions like diabetes can increase cataract risk. Keep these conditions under control with regular medical care.</li><br>
+      <li>Have routine eye exams to detect early signs of cataracts and other eye conditions.</li><br>
+      <li> When working in environments with potential eye hazards, wear appropriate protective eyewear to prevent injuries.</li>
+      </div>
+      <div class="box"><h2>Things Not to Do</h2><br><br>
+        <li>Smoking can increase the risk and progression of cataracts.</li><br>
+        <li>Excessive alcohol intake can contribute to the development of cataracts.</li><br>
+        <li>Ignoring chronic medical conditions like diabetes and hypertension, as they can increase the risk of cataracts.</li><br>
+        <li>Neglecting Eye Protection when engaging in activities with potential eye hazards, such as sports or certain occupations, wear appropriate protective eyewear.</li><br>
+      </div>
+    </div>
+    {% else %}
+    <div class="top-box" id="id" ><h4>Your test results indicate a positive diagnosis for cataracts, a condition involving clouding of the eye's lens that may affect vision. We recommend scheduling an appointment with an ophthalmologist to discuss treatment options.</h4>
+    </div>
+    <div class="bottom-container">
+      <div class="box"><h2>Things to Do</h2><br><br>
+        <li>Regular check-ups with an ophthalmologist can monitor the progression of cataracts and adjust treatment plans as needed.</li><br>
+        <li>Wear sunglasses with UV protection to reduce the risk of cataract progression.</li><br>
+        <li>Adhere to any treatment or medication prescribed by your eye specialist.</li><br>
+        <li>Discuss the possibility of cataract surgery with your doctor if your vision is significantly impaired.</li>
+      </div>
+      <div class="box"><h2>Things Not to Do</h2><br><br>
+        <li>Smoking can increase the risk and progression of cataracts.</li><br>
+        <li>Excessive alcohol intake can contribute to the development of cataracts.</li><br>
+        <li>Don't ignore symptoms like blurred vision, glare, or difficulty seeing at night. Report these to your doctor promptly.</li><br>
+        <li>Don't use over-the-counter eye drops or medications without consulting your eye specialist.</li><br>
+      </div>
+    </div>
+    {% endif %}
+</body>
+
+
+{% endblock %}
